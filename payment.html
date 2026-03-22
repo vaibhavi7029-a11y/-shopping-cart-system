@@ -7,41 +7,35 @@
 <body>
 
 <div class="glass">
-    <h2>Payment 💳</h2>
-    <input placeholder="Card Number"><br>
-    <input placeholder="Expiry Date"><br>
-    <input placeholder="CVV"><br>
+<h2>💳 Payment</h2>
 
-    <button onclick="payNow()">Pay Now</button>
-<p id="loading"></p>
+<h3>Order Summary</h3>
+<div id="summary"></div>
+
+<input placeholder="Card Number"><br>
+<input placeholder="Expiry"><br>
+<input placeholder="CVV"><br>
 
 <button onclick="payNow()">Pay Now</button>
 <p id="loading"></p>
+</div>
 
 <script>
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-let summaryDiv = document.getElementById("summary");
 let total = 0;
 
-cart.forEach(item => {
-    summaryDiv.innerHTML += `${item.name} x ${item.qty} <br>`;
+cart.forEach(item=>{
+    document.getElementById("summary").innerHTML += item.name+" x "+item.qty+"<br>";
     total += item.price * item.qty;
 });
-
-summaryDiv.innerHTML += `<br>Total: ₹${total}`;
+document.getElementById("summary").innerHTML += "<br>Total ₹"+total;
 
 function payNow(){
-    document.getElementById("loading").innerText = "Processing Payment...";
+    document.getElementById("loading").innerText="Processing...";
     setTimeout(()=>{
         localStorage.removeItem("cart");
-        window.location = "success.html";
+        window.location="success.html";
     },2000);
-}
-</script>
-function payNow(){
-    localStorage.removeItem("cart");
-    window.location = "success.html";
 }
 </script>
 
