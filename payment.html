@@ -13,6 +13,21 @@
     <input placeholder="CVV"><br>
 
     <button onclick="payNow()">Pay Now</button>
+<p id="loading"></p>
+
+<button onclick="payNow()">Pay Now</button>
+<p id="loading"></p>
+
+<script>
+function payNow(){
+    document.getElementById("loading").innerText = "Processing Payment...";
+    setTimeout(()=>{
+        localStorage.removeItem("cart");
+        window.location = "success.html";
+    },2000);
+}
+</script>
+    
 </div>
 
 <script>
