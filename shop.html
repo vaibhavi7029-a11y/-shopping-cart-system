@@ -5,29 +5,32 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<h1>🛒 Smart Shopping Cart</h1>
 
-<h1>🛒 Shopping Cart</h1>
+<div style="position:absolute; top:20px; right:30px;">
+    🛒 <span id="cartCount">0</span>
+</div>
 
 <div class="card">
+    <img src="https://via.placeholder.com/150">
     <h2>Headphones 🎧</h2>
     <p>₹1500</p>
     <button onclick="addToCart('Headphones',1500)">Add</button>
 </div>
 
 <div class="card">
+    <img src="https://via.placeholder.com/150">
     <h2>Shoes 👟</h2>
     <p>₹2000</p>
     <button onclick="addToCart('Shoes',2000)">Add</button>
 </div>
 
 <div class="card">
+    <img src="https://via.placeholder.com/150">
     <h2>Watch ⌚</h2>
     <p>₹3000</p>
     <button onclick="addToCart('Watch',3000)">Add</button>
 </div>
-
-<h2>Your Cart</h2>
-<div id="cartItems"></div>
 
 <h3>Total: ₹<span id="total">0</span></h3>
 
