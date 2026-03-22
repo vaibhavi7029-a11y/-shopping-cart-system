@@ -19,6 +19,18 @@
 <p id="loading"></p>
 
 <script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let summaryDiv = document.getElementById("summary");
+let total = 0;
+
+cart.forEach(item => {
+    summaryDiv.innerHTML += `${item.name} x ${item.qty} <br>`;
+    total += item.price * item.qty;
+});
+
+summaryDiv.innerHTML += `<br>Total: ₹${total}`;
+
 function payNow(){
     document.getElementById("loading").innerText = "Processing Payment...";
     setTimeout(()=>{
@@ -27,10 +39,6 @@ function payNow(){
     },2000);
 }
 </script>
-    
-</div>
-
-<script>
 function payNow(){
     localStorage.removeItem("cart");
     window.location = "success.html";
